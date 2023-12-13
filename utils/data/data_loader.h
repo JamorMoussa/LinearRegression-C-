@@ -1,0 +1,28 @@
+#ifndef DATA_LOADER_H
+#define DATA_LOADER_H
+
+#include <iostream>
+#include <eigen3/Eigen/Dense>
+
+using namespace std;
+
+class DataFrame{
+    private:
+        Eigen::MatrixXd data;
+
+    public:
+        DataFrame();
+        DataFrame(Eigen::MatrixXd data) : data(data){}
+        ~DataFrame();
+
+        void display(){
+            std::cout << this->data << std::endl; 
+        };
+        static DataFrame read_csv(const string& filename, const char& delimiter);
+
+        static Eigen::MatrixXd from_vector(std::vector<std::vector<double>> vect);
+
+        std::tuple<DataFrame, DataFrame> split(const int y_index);
+};
+
+#endif

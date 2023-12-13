@@ -1,11 +1,20 @@
 #include <iostream>
 #include <eigen3/Eigen/Dense>
-#include "utils/linear_models/linear_regression.h"
+#include "utils/data/data_loader.h"
 
 using namespace Eigen;
 
 int main(int argc, char* argv[]){
 
-    LinearRegression rg;
+    DataFrame df = DataFrame::read_csv("./data.csv", ',');
+    //df.display();
+
+    auto [X_train, y_train] = df.split(0);
+
+    X_train.display();
+
+    std::cout << "\n" << std::endl;
+
+    y_train.display();
 
 }
