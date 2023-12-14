@@ -73,3 +73,15 @@ std::tuple<DataFrame, DataFrame> DataFrame::split(const int y_index){
 
     return {DataFrame(X_train),DataFrame(y_train)};
 }
+
+DataFrame DataFrame::validate_data(DataFrame X){
+
+    auto [rows, cols] = X.shape();
+
+    Eigen::MatrixXd augmentedMatrix(rows, cols + 1);
+    Eigen::VectorXd ones = Eigen::VectorXd::Ones(rows);
+    augmentedMatrix << ones, X.data;
+
+    return DataFrame(augmentedMatrix);
+
+}

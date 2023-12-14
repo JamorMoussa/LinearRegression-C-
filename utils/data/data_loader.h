@@ -24,6 +24,8 @@ class DataFrame{
 
         std::tuple<DataFrame, DataFrame> split(const int y_index);
 
+        static DataFrame validate_data(DataFrame X);
+
         std::tuple<int , int> shape(){
             return {this->data.rows(), this->data.cols()};
         };
