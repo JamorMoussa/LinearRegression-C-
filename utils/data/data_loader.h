@@ -7,7 +7,7 @@
 using namespace std;
 
 class DataFrame{
-    private:
+    public:
         Eigen::MatrixXd data;
 
     public:
@@ -23,6 +23,10 @@ class DataFrame{
         static Eigen::MatrixXd from_vector(std::vector<std::vector<double>> vect);
 
         std::tuple<DataFrame, DataFrame> split(const int y_index);
+
+        std::tuple<int , int> shape(){
+            return {this->data.rows(), this->data.cols()};
+        };
 };
 
 #endif

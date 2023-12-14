@@ -66,7 +66,6 @@ std::tuple<DataFrame, DataFrame> DataFrame::split(const int y_index){
         for(int j = 0; j < data.cols(); j++){
             if(j < data.cols() - y_index - 1){
                 X_train(i, j) = data(i, j);
-                std::cout << j << std::endl;
             }else 
                 y_train(i, j + y_index - data.cols() +1) = data(i, j);
         }   
