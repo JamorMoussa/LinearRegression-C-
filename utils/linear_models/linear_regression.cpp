@@ -18,13 +18,13 @@ void LinearRegression::fit(DataFrame X_train, DataFrame y_train){
 
     X_train = DataFrame::validate_data(X_train);
 
-    X_train.display();
+    //X_train.display();
 
     auto [n_samples, n_features] = X_train.shape();
 
     weights = Eigen::MatrixXd::Random(n_features, 1);
 
-    Eigen::Matrix<double, Eigen::Dynamic, 1> y_pred;
+    //Eigen::Matrix<double, Eigen::Dynamic, 1> y_pred;
     
 
     for(int i = 0; i< n_iters; i++){

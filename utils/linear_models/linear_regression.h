@@ -12,7 +12,6 @@ class LinearRegression{
 
     public:
         Eigen::Matrix<double, Eigen::Dynamic, 1> weights;
-        double bias;
 
     public:
         LinearRegression(double lr, int n_iters);
