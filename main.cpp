@@ -7,7 +7,7 @@ using namespace Eigen;
 
 int main(int argc, char* argv[]){
 
-    DataFrame df = DataFrame::read_csv("./lg_data.csv", ',');
+    DataFrame df = DataFrame::read_csv("./lg_data_2d.csv", ',');
     //df.display();
 
     // auto [rows, cols] = df.shape();
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
     //X_train = DataFrame::validate_data(X_train);
     //X_train.display();
 
-    LinearRegression lg(0.01, 1000);
+    LinearRegression lg = LinearRegression(0.01, 1000);
 
     lg.fit(X_train, y_train);
 
