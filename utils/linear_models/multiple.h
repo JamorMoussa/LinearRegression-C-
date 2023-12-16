@@ -8,7 +8,11 @@ class LinearRegressionMultiple{
         double lr;
         int n_iters;
 
-        Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> weights;
+        Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> coef_;
+        Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> intercept_;
+
+    private:
+        Eigen::MatrixXd weights;
 
     public:
         LinearRegressionMultiple(double lr , int n_iters): lr(lr), n_iters(n_iters){};

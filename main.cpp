@@ -8,15 +8,24 @@ using namespace Eigen;
 
 int main(int argc, char* argv[]){
 
-    DataFrame df = DataFrame::read_csv("./mulg_data(1).csv", ',');
+    DataFrame df = DataFrame::read_csv("./data/mulg_data(1).csv", ',');
 
     auto [X_train, y_train] = df.split(1);
-
-    //X_train.display();
 
     LinearRegressionMultiple lgm(0.01, 1000);
 
     lgm.fit(X_train, y_train);
 
+    std::cout << "coef_ : \n"<< lgm.coef_ << std::endl;
+    std::cout << "intercept_ :\n" << lgm.intercept_ << std::endl;
+
+    //X_train.display();
+
+    // LinearRegressionMultiple lgm(0.01, 1000);
+
+    // lgm.fit(X_train, y_train);
+
+    // std::cout << "coef_ : "<< lgm.coef_ << std::endl;
+    // std::cout << "intercept_ : " << lgm.intercept_ << std::endl;
 
 }

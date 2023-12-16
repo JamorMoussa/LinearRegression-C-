@@ -23,6 +23,7 @@ void LinearRegression::fit(DataFrame X_train, DataFrame y_train){
     auto [n_samples, n_features] = X_train.shape();
 
     weights = Eigen::MatrixXd::Random(n_features, 1);
+    coef_ = Eigen::MatrixXd::Random(n_features - 1, 1);
 
     //Eigen::Matrix<double, Eigen::Dynamic, 1> y_pred;
     
@@ -39,6 +40,12 @@ void LinearRegression::fit(DataFrame X_train, DataFrame y_train){
         //     std::cout << "iter : " << i << " loss : " << ((y_pred - y_train.data).transpose()*(y_pred - y_train.data)) << std::endl;
         // }
 
+    }
+
+    intercept_(0, 0) = weights(0, 0);
+
+    for (int i = 0 ; i < n_features - 1; ++i){
+        coef_(i, 0) = weights(i+1, 0);
     }
 
     /* w = (Xt * X)^-1 * Xt * y;
